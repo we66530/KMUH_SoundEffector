@@ -16,25 +16,52 @@ body {
 }
 
 button {
-  background: #1f2933;
-  color: var(--text-main);
+  background-color: #DEEBF7;   /* 淡藍底 */
+  color: #2E75B6;              /* 深藍字 */
   border: none;
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin: 6px;
-  font-size: 16px;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 8px 6px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
+  min-width: 88px;
+  transition: all 0.15s ease;
 }
 
+/* Hover：更像醫療設備被按下 */
 button:hover {
-  background: var(--accent-blue);
-  color: black;
+  background-color: #C7DEF4;
+  transform: translateY(-1px);
 }
 
+/* Active（真的按下） */
+button:active {
+  background-color: #B3D1F0;
+  transform: translateY(0);
+}
+
+/* FAIL 區（仍然保留危險感，但可讀） */
 button.fail {
-  background: #3f1d1d;
+  background-color: #FDE2E2;
+  color: #B91C1C;
 }
 
 button.fail:hover {
-  background: var(--accent-red);
+  background-color: #FECACA;
+}
+
+/* 主任在場：FAIL 鎖定 */
+button.fail:disabled {
+  background-color: #E5E7EB;
+  color: #9CA3AF;
+  cursor: not-allowed;
+}
+
+/* 全停鍵稍微大一點，像 emergency stop */
+#stop {
+  background-color: #FCA5A5;
+  color: #7F1D1D;
+  font-size: 20px;
+  padding: 16px 22px;
 }
