@@ -1,47 +1,81 @@
+:root {
+  --bg-main: #0f172a;
+  --bg-panel: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
 body {
+  margin: 0;
+  padding: 20px;
   background: var(--bg-main);
   color: var(--text-main);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans TC",
+    "PingFang TC",
+    system-ui,
+    sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.hint {
+  color: var(--text-muted);
+  margin-bottom: 20px;
 }
 
 .section {
   background: var(--bg-panel);
-  border-left: 5px solid var(--accent-blue);
   padding: 16px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  margin-bottom: 22px;
 }
 
 .section h2 {
   margin-top: 0;
 }
 
+/* === Buttons === */
+
 button {
-  background-color: #DEEBF7;   /* 淡藍底 */
-  color: #2E75B6;              /* 深藍字 */
+  background-color: #DEEBF7;
+  color: #2E75B6;
   border: none;
   border-radius: 12px;
   padding: 14px 18px;
-  margin: 8px 6px;
+  margin: 6px 6px 6px 0;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  min-width: 88px;
+  min-width: 90px;
   transition: all 0.15s ease;
 }
 
-/* Hover：更像醫療設備被按下 */
 button:hover {
   background-color: #C7DEF4;
   transform: translateY(-1px);
 }
 
-/* Active（真的按下） */
 button:active {
   background-color: #B3D1F0;
   transform: translateY(0);
 }
 
-/* FAIL 區（仍然保留危險感，但可讀） */
+/* FAIL */
+
 button.fail {
   background-color: #FDE2E2;
   color: #B91C1C;
@@ -51,17 +85,31 @@ button.fail:hover {
   background-color: #FECACA;
 }
 
-/* 主任在場：FAIL 鎖定 */
 button.fail:disabled {
   background-color: #E5E7EB;
   color: #9CA3AF;
   cursor: not-allowed;
 }
 
-/* 全停鍵稍微大一點，像 emergency stop */
+/* STOP */
+
 #stop {
   background-color: #FCA5A5;
   color: #7F1D1D;
   font-size: 20px;
   padding: 16px 22px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  button {
+    font-size: 20px;
+    padding: 18px 22px;
+    min-width: 110px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
 }
