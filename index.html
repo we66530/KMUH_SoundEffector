@@ -1,12 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>🩺 外科忘年會音效控制台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
+
 <h1>🩺 外科忘年會音效控制台</h1>
 
 <div class="controls">
-  <button id="stop">🔇 全停</button>
-  <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8">
+  <button id="stop">🔇 全停（9）</button>
+
+  <label class="volume">
+    🔊 音量
+    <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8">
+  </label>
+
+  <label class="chief">
+    <input type="checkbox" id="chiefMode">
+    👨‍⚕️ 主任在場模式（鎖 FAIL）
+  </label>
+</div>
+
+<div class="hint">
+  ⌨️ 快捷鍵：  
+  1 開場 ｜ 2 老師 ｜ 3 住院醫師 ｜ 4 頒獎 ｜  
+  5–6 FAIL ｜ 7 救場 ｜ 8 結尾 ｜ 9 全停
 </div>
 
 <div id="board"></div>
 
 <script src="app.js"></script>
 </body>
+</html>
