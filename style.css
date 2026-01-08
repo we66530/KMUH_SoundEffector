@@ -1,0 +1,40 @@
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+.section {
+  background: var(--bg-panel);
+  border-left: 5px solid var(--accent-blue);
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+button {
+  background: #1f2933;
+  color: var(--text-main);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-blue);
+  color: black;
+}
+
+button.fail {
+  background: #3f1d1d;
+}
+
+button.fail:hover {
+  background: var(--accent-red);
+}
