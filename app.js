@@ -1,5 +1,5 @@
 /***********************
- * 場景定義（資料驅動）
+ * 場景定義
  ***********************/
 const scenes = [
   {
@@ -62,12 +62,15 @@ const scenes = [
 ];
 
 /***********************
- * Audio 控制
+ * 狀態
  ***********************/
 let currentAudio = null;
 let volume = 0.8;
 let chiefMode = false;
 
+/***********************
+ * Audio 控制
+ ***********************/
 function playSound(path) {
   stopAll();
   currentAudio = new Audio(path);
@@ -99,7 +102,26 @@ document.getElementById("chiefMode").onchange = e => {
 };
 
 /***********************
- * 動態產生按鈕
+ * 全螢幕
+ ***********************/
+const fsBtn = document.getElementById("fullscreen");
+
+fsBtn.onclick = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+};
+
+document.addEventListener("fullscreenchange", () => {
+  fsBtn.textContent = document.fullscreenElement
+    ? "❌ 離開全螢幕"
+    : "📱 全螢幕";
+});
+
+/***********************
+ * 產生按鈕
  ***********************/
 const board = document.getElementById("board");
 
@@ -115,9 +137,7 @@ scenes.forEach(scene => {
     const btn = document.createElement("button");
     btn.textContent = s.label;
 
-    if (scene.fail) {
-      btn.classList.add("fail");
-    }
+    if (scene.fail) btn.classList.add("fail");
 
     btn.onclick = () => {
       if (scene.fail && chiefMode) return;
@@ -133,12 +153,12 @@ scenes.forEach(scene => {
 function updateFailButtons() {
   document.querySelectorAll(".fail").forEach(btn => {
     btn.disabled = chiefMode;
-    btn.style.opacity = chiefMode ? 0.3 : 1;
+    btn.style.opacity = chiefMode ? 0.35 : 1;
   });
 }
 
 /***********************
- * 快捷鍵 1–9
+ * 快捷鍵
  ***********************/
 document.addEventListener("keydown", e => {
   if (e.repeat) return;
@@ -148,10 +168,7 @@ document.addEventListener("keydown", e => {
     return;
   }
 
-  // 主任在場，鎖 FAIL
-  if (chiefMode && (e.key === "5" || e.key === "6")) {
-    return;
-  }
+  if (chiefMode && (e.key === "5" || e.key === "6")) return;
 
   scenes.forEach(scene => {
     scene.sounds.forEach(s => {
