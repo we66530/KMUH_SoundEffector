@@ -8,7 +8,7 @@ const scenes = [
     sounds: [
       { label: "心跳（1）", file: "opening_heartbeat_short.mp3", key: "1" },
       { label: "史詩", file: "opening_epic_mid.mp3" },
-      { label: "刀落", file: "opening_knife_short.mp3" }
+      { label: "刀馬刀", file: "opening_knife_short.mp3" }
     ]
   },
   {
